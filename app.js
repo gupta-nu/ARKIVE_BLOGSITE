@@ -5,7 +5,7 @@ const app= express();
 //connect to mongodb
 const dbURI ='mongodb+srv://nodeproj:whitelighters@nunukive.tyc9j.mongodb.net/nukive?retryWrites=true&w=majority&appName=nunukive';
 mongoose.connect(dbURI)
-.then((result)=>console.log('connected to db'))
+.then((result)=>console.log(app.listen(3000)+"now listening for requests"))
 .catch((err)=>console.log(err));
 
 //register view engine
@@ -14,7 +14,6 @@ app.set('view engine', 'ejs');
 
 //listen for requests
 
-app.listen(3000);
 //middleware and static files 
 app.use(express.static("public"));
 
