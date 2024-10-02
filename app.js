@@ -1,7 +1,12 @@
 const express= require('express');
 const morgan = require('morgan');
-
+const mongoose = require('mongoose');
 const app= express();
+//connect to mongodb
+const dbURI ='mongodb+srv://nodeproj:whitelighters@nunukive.tyc9j.mongodb.net/nukive?retryWrites=true&w=majority&appName=nunukive';
+mongoose.connect(dbURI)
+.then((result)=>console.log('connected to db'))
+.catch((err)=>console.log(err));
 
 //register view engine
 app.set('view engine', 'ejs');
