@@ -21,45 +21,10 @@ app.use(express.static("public"));
 
 app.use(morgan('dev'));
 
-//mongoose and mongo sandbox routes 
-
-app.get('/add-blog',(req,res)=>{
-    const blog= new Blog({
-        title : 'new entry',
-        snippet : 'testing',
-        body: 'more about testing',
-    });
-
-    blog.save()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{console.log(err)});
-})
-app.get('/all-blogs',(req,res)=>{
-Blog.find()
-.then((result)=>{
-res.send(result);
-}).catch((err)=>{
-    console.log(err);
-});
-});
-app.get('/single-blog',(req,res)=>{
-Blog.findById('66ffc0318e0d27cb71dd4cb8').then((result)=>{
-res.send(result);
-}).catch((err)=>{console.log(err)});
-})
 
 app.get('/',(req,res)=>
     {
-        const blogs=[
-            {title :'yoshi finds egg',snippet:' lorem ispum dolor somethingsomethin'},
-            {title: 'mario saves princess', snippet: 'lorem ipsum dolor sit amet consectetur adipiscing elit'},
-            {title: 'luigi enters the haunted mansion', snippet: 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'},
-            {title: 'peach throws a party', snippet: 'ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi'},
-            {title: 'bowser attacks the kingdom', snippet: 'aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit'},
-        ]
-        res.render('index',{title: 'Home', blogs});
+        res.redirect('/blogs');
     });
 
 app.get('/about',(req,res)=>
@@ -67,6 +32,16 @@ app.get('/about',(req,res)=>
         res.render('about',{title: 'about'});
     });
 
+
+//blog routes
+
+app.get('/blogs',(req,res)=>
+{
+    Blog.find().sort({createdAt: -1})
+    .then((result)=>{
+        res.render('index',{title: 'all entries', blogs: result})
+    }).catch((err)=>{console.log(err)});
+})
 
 app.get('/arkive/create',(req,res)=>{
     res.render('create',{title: 'creat'}); 

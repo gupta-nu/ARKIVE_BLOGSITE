@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Montserrat:wght@300;500&display=swap');
 
 body {
@@ -6,15 +5,15 @@ body {
   margin: 20px auto;
   padding: 0 20px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #003366; /* Deep indigo blue */
-  color: #f0f0f0; /* White for contrast */
+  background-color: #e8f3ff;
+  color: #000000;
 }
 
 p, h1, h2, h3, a, ul {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #f0f0f0; /* White text to match the cyanotype feel */
+  color: #000000;
 }
 
 nav {
@@ -24,14 +23,14 @@ nav {
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
   padding: 20px;
-  background-color: #004080; /* Deep indigo with cyan undertones */
+  background-color: #004080;
   border-radius: 8px;
 }
 
 nav h1 {
   font-size: 2.5em;
   font-family: 'Noto Serif', serif;
-  color: #f0f0f0; /* Pure white for striking contrast */
+  color: #ffffff;
 }
 
 nav ul {
@@ -46,23 +45,23 @@ nav li {
 }
 
 nav p, nav a {
-  color: #d0e6f2; /* Light cyan for muted links */
+  color: #d0e6f2;
   font-weight: 300;
 }
 
 footer {
-  color: #d0e6f2; /* Light cyan */
+  color: #d0e6f2;
   text-align: center;
   margin: 80px auto 20px;
-  padding: 20px;
-  background-color: #00264d; /* Darker indigo for depth */
+  padding: auto;
+  background-color: #00264d;
   border-radius: 8px;
   border-top: 1px solid #005580;
 }
 
 h2 {
   margin-bottom: 40px;
-  color: #f0f0f0; /* White to maintain the cyanotype feel */
+  color: #f0f0f0;
 }
 
 h3 {
@@ -75,9 +74,9 @@ h3 {
 }
 
 .create-blog form {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #004080; /* Rich indigo */
+  max-width: 100%;
+  margin: auto;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -86,41 +85,56 @@ h3 {
 .create-blog input, 
 .create-blog textarea {
   display: block;
-  width: 100%;
+  width: 95%;
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #d0e6f2; /* Cyan accent for borders */
-  background-color: #003366; /* Deep indigo for input backgrounds */
-  color: #f0f0f0; /* White text */
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 8px;
   font-size: 1em;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.create-blog label {
-  display: block;
-  margin-top: 24px;
-  font-weight: bold;
-  color: #d0e6f2; /* Light cyan */
+.create-blog input:focus, 
+.create-blog textarea:focus {
+  background-color: #e6e6e6;
+  box-shadow: 0 0 8px rgba(88, 192, 208, 0.8);
+}
+
+.create-blog input:hover, 
+.create-blog textarea:hover {
+  border-color: #d1e3b2; /* Light matcha green */
 }
 
 textarea {
-  height: 120px;
+  height: 200px;
 }
 
 .create-blog button {
   margin-top: 20px;
-  background: #005580; /* Vibrant cyan blue */
+  background: #005580;
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
   font-size: 1.2em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.create-blog button:hover {
-  background-color: #c1d7ee; /* Slightly lighter cyan on hover */
+@media (max-width: 768px) {
+  .create-blog form {
+    padding: 20px;
+  }
+
+  .create-blog input, 
+  .create-blog textarea {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .create-blog button {
+    font-size: 1em;
+  }
 }
-
-
