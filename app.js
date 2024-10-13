@@ -19,6 +19,8 @@ app.set('view engine', 'ejs');
 //middleware and static files 
 app.use(express.static("public"));
 
+//use to handling form submission and convertin data into js obj
+app.use(express.urlencoded({extended:true}));
 app.use(morgan('dev'));
 
 
@@ -43,7 +45,18 @@ app.get('/blogs',(req,res)=>
     }).catch((err)=>{console.log(err)});
 })
 
-app.get('/arkive/create',(req,res)=>{
+
+app.post('/blogs',(req,res)=>{
+const blog= new Blog(req.body)
+blog.save()
+.then((result)=>{
+    res.redirect('/blogs');
+}).catch((err)=>{
+    conosle.log(err)
+})
+})
+
+app.get('/blogs/create',(req,res)=>{
     res.render('create',{title: 'creat'}); 
 })
 
@@ -51,4 +64,4 @@ app.use((req,res)=>
 {
 res.status(404).render('404',{title: '404'});
 })
- 
+
