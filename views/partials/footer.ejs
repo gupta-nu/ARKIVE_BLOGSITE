@@ -1,3 +1,6 @@
 <footer>
-    copyright &copy;anukive 24
-</footer>
+    copyright &copy;<span id="year"></span> anukive 
+    <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+        </footer>

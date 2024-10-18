@@ -7,8 +7,7 @@ const app= express();
 //connect to mongodb
 const dbURI ='mongodb+srv://nodeproj:whitelighters@nunukive.tyc9j.mongodb.net/nukive?retryWrites=true&w=majority&appName=nunukive';
 mongoose.connect(dbURI)
-.then((result)=>console.log(app.listen(3000)+"now listening for requests"))
-.catch((err)=>console.log(err));
+.then((result)=>{app.listen(3000,()=>{console.log("Now listenng for requests on port 3000");});}).catch((err)=>{console.log(err)});
 
 //register view engine
 app.set('view engine', 'ejs');
@@ -52,12 +51,12 @@ blog.save()
 .then((result)=>{
     res.redirect('/blogs');
 }).catch((err)=>{
-    conosle.log(err)
+    console.log(err)
 })
 })
 
 app.get('/blogs/create',(req,res)=>{
-    res.render('create',{title: 'creat'}); 
+    res.render('create',{title: 'create'}); 
 })
 
 app.use((req,res)=>
