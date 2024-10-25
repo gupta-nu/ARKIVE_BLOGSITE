@@ -8,7 +8,6 @@ body {
   background-color: #e8f3ff;
   color: #000000;
   font-size: 24px;
-
 }
 
 p, h1, h2, h3, a, ul {
@@ -73,7 +72,6 @@ h3 {
 
 .content {
   margin-left: 20px;
-  
 }
 
 .create-blog form {
@@ -116,7 +114,6 @@ textarea {
   font-size: 9em;
 }
 
-
 .create-blog button {
   margin-top: 20px;
   background: #005580;
@@ -128,6 +125,7 @@ textarea {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .404 {
   max-width: 600px;
   margin: auto;
@@ -180,6 +178,7 @@ p {
     font-size: 1em;
   }
 }
+
 .blogs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -194,11 +193,26 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  opacity: 0; /* Start invisible for fade-in effect */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeIn 0.5s forwards; /* Fade-in animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1; /* End fully opaque */
+    transform: translateY(0); /* End in original position */
+  }
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transform: translateY(-10px); /* Move up more on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Add a deeper shadow on hover */
 }
 
 .blog-card h3 {
