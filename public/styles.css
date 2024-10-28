@@ -288,6 +288,7 @@ p {
 .delete:hover {
   background-color: #000000;
   color: #d0e6f2;
+  content: url(trashcanwhite.svg);
 }
 
 @media (max-width: 768px) {
