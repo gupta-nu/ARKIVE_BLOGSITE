@@ -1,31 +1,36 @@
 <html lang="en">
-    <%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-    <body>
-       <%-  include('./partials/nav.ejs')  %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
 
-       <div class="details content">
-        <h2><%= blog.title %></h2>
-        <div class=""content">
-            <P><%= blog.body%></P>
-        </div>
-        <a class="delete" data-doc="<%= blog._id %>">delete</a>
-       </div>
-       <script>
+    <div class="details content">
+      <h2><%= blog.title %></h2>
+      <div class="content">
+        <p><%= blog.body %></p>
+      </div>
 
-        const trashcan= document.querySelector('a.delete');
-        trashcan.addEventListener('click',(e)=>{
-            const endpoint= `/blogs/${trashcan.dataset.doc}`;
+      <!-- Add a container for the links -->
+      <div class="link-container">
+        <a href="/" class="home-link">Return to homepage</a>
+        <a class="delete" data-doc="<%= blog._id %>">Delete</a>
+      </div>
+    </div>
 
-            fetch(endpoint,{
-                method: 'DELETE'
-            }).then((response)=>response.json())
-            .then((data)=>window.location.href=data.redirect)
-            .catch(err=>console.log(err));
+    <script>
+      const trashcan = document.querySelector('a.delete');
+      trashcan.addEventListener('click', (e) => {
+        const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+        fetch(endpoint, {
+          method: 'DELETE',
         })
-       </script>
- 
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
 
-       <%-  include('./partials/footer.ejs')  %>
-    </body>
- </html>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

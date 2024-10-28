@@ -75,7 +75,7 @@ footer {
 
 /* Details section update - no box, centered title */
 .details {
-  max-width: 800px;
+  max-width: 100%;
   margin: 40px auto;
   padding: 0;
 }
@@ -200,7 +200,8 @@ p {
 }
 
 .home-link:hover {
-  background-color: #007acc;
+  background-color: #d8f5fb;
+  color: #000000;
 }
 
 /* Blogs container */
@@ -324,3 +325,12 @@ p {
     font-size: 1em;
   }
 }
+
+/* Container for positioning the links */
+.link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:right;
+  margin-top:1px; /* Adjust as needed */
+}
+
