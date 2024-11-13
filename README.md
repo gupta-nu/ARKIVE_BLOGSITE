@@ -47,3 +47,15 @@ After setting up, you can create new blog posts, view existing ones, and manage 
 
 Contributions are welcome! Please fork the repository and submit a pull request with your enhancements or bug fixes.
 
+
+## do to 
+- login/logout/signup functionality
+- tag system
+- host site on aws
+- better interface for adding post?
+- heatmap add on main page
+- search functionality
+- simple sign in or user auth wit devis?
+- mutilple users database sys
+- bookmarking/starring of a page
+- 
