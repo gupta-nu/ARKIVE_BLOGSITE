@@ -30,7 +30,7 @@ To set up the ARKIVE Blogsite locally, follow these steps:
 
     bash
 
-npm install
+    npm install
 
 Run the application:
 
